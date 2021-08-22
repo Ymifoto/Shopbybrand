@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright Â© 2018 Porto. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.logo">
+<!--            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.marka" template="AVBox_Shopbybrand::product/view/brand_logo.phtml"/> -->
+            <block class="AVBox\Shopbybrand\Block\Logo" name="product.info.marka" template="AVBox_Shopbybrand::product/view/brand_logo.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

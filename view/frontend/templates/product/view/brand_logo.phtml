@@ -1,0 +1,15 @@
+<style> .logokep {border: 1px solid #dbdbdb;} </style>
+
+<?php 
+$brand = $block->getBrand();
+
+$ellenorzes = array();
+$kep = $block->getMediaUrl() . 'logok/' . str_replace(' ', '', strtolower($brand)) . '-min.jpg';
+$ellenorzes = @get_headers($kep);
+
+
+if (strpos($ellenorzes[0], '404') !== false) {$image = $block->getPlaceholder();}
+else {$image = $block->getMediaUrl() . 'logok/' . str_replace(' ', '', strtolower($brand)) . '-min.jpg';}
+
+echo '</br><a title="'.$brand.' márkaoldal" href="markak/'.str_replace(' ', '-', strtolower($brand)).'"><img class="logokep" title="'.$brand.' márkaoldal" src="'.$image.'" width="70" height="auto"/></a>';
+?>

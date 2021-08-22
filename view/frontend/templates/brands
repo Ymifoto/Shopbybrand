@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/avbox-navlist.min.css">
+
+<div class="container">
+<div id="gyartok" class="row">
+
+<?php
+$disabled = $block->getDisabledBrands();
+$url = $block->getStoreUrl();
+$gyartok = $block->getManufacturerList();
+var_dump($disabled);
+var_dump($url);
+var_dump($gyartok);
+
+
+foreach ($gyartok as $gyarto => $darab) {
+    if (!array_search($gyarto,$disabled)) {
+        $image = $url.'/media/logok/'.str_replace(' ', '', strtolower($gyarto)) . '-min.jpg';
+        $image_headers = @get_headers($image);
+
+	if (strpos($image_headers[0], '404') == false) {$image_ki = '/media/logok/' . str_replace(' ', '', strtolower($gyarto));}
+            else {$image_ki = '/media/catalog/product/placeholder/default/image';}
+	print_r('<div class="item-class col-md-gy" style="text-align:center;"><a title="'.$gyarto.' márkaoldal" href=""><img class="zoom-eff" title="'.$gyarto.'" src="'.$image_ki.'-min.jpg" width="100" height="auto" /></a></br><h4 style="margin-bottom:-18px;">' . $gyarto . '</h4></br><span style="font-style:italic;font-size:10px;">' . $darab . ' termék</span></div>');
+    }
+}
+?>
+
+</div>
+</div>
+<!-- <script>
+        require(['jquery', 'navlist']);
+</script> -->

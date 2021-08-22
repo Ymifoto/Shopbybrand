@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="/avbox-navlist.min.css">
+
+<?php
+$url = $block->getStoreUrl();
+$page = $block->getBrandsPageURL();
+
+$num = $block->getManufacturersList();
+
+$proba = $block->getProba();
+
+var_dump($num);
+
+echo '<br>';
+echo '<br>';
+echo '<br>';
+var_dump($proba);
+$valami = array();
+
+foreach ($proba as $row) {
+
+    $id = $row['id'];
+    $brandcode = $row['brand_code'];
+
+    if (array_key_exists($row['brand_code'],$num)) {
+        
+        $data = array('count' => $num[$row['brand_code']]);
+        var_dump($data);
+        echo '<br>';
+    }
+}
+
+
+echo '<br>';
+echo '<br>';
+
+echo '<br>';
+
+
+
+
+
+die;
+?>
+
+<div class="container">
+<div id="gyartok" class="row">
+
+<?php
+$gyartok = $block->getBrandsList();
+
+foreach ($gyartok as $gyarto ) {
+    
+    //echo $gyarto['brand'] . ' - ' . $gyarto['count'] . '<br>';
+    
+    $image = $url.'/media/logok/'.str_replace(' ', '', strtolower($gyarto['brand'])) . '-min.jpg';
+    $image_headers = @get_headers($image);
+
+	if (strpos($image_headers[0], '404') == false) {$image_ki = '/media/logok/' . str_replace(' ', '', strtolower($gyarto['brand']));}
+    else {$image_ki = '/media/catalog/product/placeholder/default/image';}
+	print_r('<div class="item-class col-md-gy" style="text-align:center;"><a title="' . $gyarto['brand'] . ' márkaoldal" href="' . $url . $page[0]['path'] .'/' . str_replace(' ', '-', strtolower($gyarto['brand'])) . '"><img class="zoom-eff" title="' . $gyarto['brand'] . '" src="' . $image_ki . '-min.jpg" width="100" height="auto" /></a></br><h4 style="margin-bottom:-18px;">' . $gyarto['brand'] . '</h4></br><span style="font-style:italic;font-size:10px;">' . $gyarto['count'] . ' termék</span></div>');
+}
+
+?>
+
+</div>
+</div>
+<script>
+        require(['jquery', 'navlist']);
+</script>

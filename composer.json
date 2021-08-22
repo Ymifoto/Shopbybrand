@@ -1,0 +1,22 @@
+{
+    "name": "avbox/module-shopbybrand",
+    "description": "AVBox Shop by Brand module",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "email": "info@mage2gen.com",
+            "name": "Mage2Gen"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "AVBox\\Shopbybrand\\": ""
+        },
+        "files": [
+            "registration.php"
+        ]
+    }
+}

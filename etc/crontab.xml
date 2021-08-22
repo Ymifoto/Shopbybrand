@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+<!--    <group id="default">
+        <job name="AVBox_Shopbybrand_Add_Brand" instance="AVBox\Shopbybrand\Cron\TableAddBrand" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+     </group>
+     <group id="default">
+        <job name="AVBox_Shopbybrand_Delete_Brand" instance="AVBox\Shopbybrand\Cron\TableDeleteBrand" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+     </group>
+-->
+     <group id="default">
+        <job name="AVBox_Shopbybrand_Update_Count" instance="AVBox\Shopbybrand\Cron\CountUpdate" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+     </group>
+</config>
